@@ -4,9 +4,13 @@ import CreateQuestion from './CreateQuestion.vue'
 import ListQuestion from './ListQuestion.vue'
 import FindQuestion from './FindQuestion.vue'
 import VueRouter from 'vue-router'
-import 'bootstrap'
 import VueResource from 'vue-resource'
 
+//bootstrap shenanigans
+var tether = require('tether');
+global.jQuery = require('jquery');
+window.Tether = tether;
+require('bootstrap');
 
 
 const Bar = { template: '<div>bar</div>' }
