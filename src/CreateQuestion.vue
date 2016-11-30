@@ -26,7 +26,7 @@
           <div class="col-xs-2">
           </div>
           <div class="col-xs-4">
-            <button type="button"id="CreateBtn" name="CreateBtn" class="btn btn-success" v-on:click="postQuestion()">Create</button>
+            <button type="button" id="CreateBtn" name="CreateBtn" class="btn btn-success" v-on:click="postQuestion()">Create</button>
             <button type="button" id="CancelBtn" name="CanceltBtn" class="btn btn-danger">Cancel</button>
           </div>
           <div class="col-xs-3">
