@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     init: function () {
-        var url = "http://192.241.159.51/api/polls/" + this.$route.params.id;
+        var url = "http://192.241.159.51/api/polls/" + this.$route.params.slug;
         this.$http.get(url).then((response) => {
             this.question = response.body;
         })

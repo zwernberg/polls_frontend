@@ -72,8 +72,7 @@ export default {
   this.$http.post(url, payload).then((response) => {
 
      console.log(response.body.id);
-     this.$router.push({ path: 'get/' + response.body.id, params: { id: response.body.id }})
-     //this.router.push({ name: 'get', params: { id: 1 }})
+     this.$router.push({ path: 'get/' + response.body.slugfield, params: { slug: response.body.slugfield }})
 
   }, (response) => {
     // error callback

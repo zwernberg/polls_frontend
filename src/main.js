@@ -24,7 +24,7 @@ const Bar = { template: '<div>bar</div>' }
 const routes = [
   { path: '/create', component: CreateQuestion },
   { path: '/find', component: FindQuestion },
-  { path: '/get/:id', component: ListQuestion },
+  { path: '/get/:slug', component: ListQuestion },
   { path: '/bar', component: Bar }
 ]
 Vue.use(VueResource);
