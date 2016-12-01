@@ -1,7 +1,7 @@
 <template>
 <ul id="example-1" class="list-group">
-    <h4>{{question.question_text}}</h4>
-    <h2>What To Search for: {{question.slugfield}} </h2>
+    <h2>{{question.question_text}}</h4>
+    <h4>What To Search for: {{question.slugfield}} </h2>
   <li type="button" class="list-group-item btn"  v-for="choice in question.choices" v-on:click="vote(choice)" >
           <span class="tag tag-default tag-pill float-xs-right">{{choice.votes}} Votes</span>
 
