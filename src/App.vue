@@ -1,17 +1,17 @@
 <template>
 
 <div id="app">
-  <h1><router-link to="/">Hello App!</router-link></h1>
+  <h1><router-link to="/">app name</router-link></h1>
 
     <!-- use router-link component for navigation. -->
     <!-- specify the link by passing the `to` prop. -->
     <!-- <router-link> will be rendered as an `<a>` tag by default -->
-    <router-link to="/create" class="btn btn-primary">Create a Question</router-link>
-    <router-link to="/find" class="btn btn-info">Find a Question</router-link>
+
+
 
   <!-- route outlet -->
   <!-- component matched by the route will render here -->
-  <div class="container">
+  <div class="container-fluid">
   <router-view></router-view>
   </div>
 </div>
@@ -40,6 +40,7 @@ export default {
 
   h1, h2 {
     font-weight: normal;
+    font-size: 100px;
   }
 
   ul {

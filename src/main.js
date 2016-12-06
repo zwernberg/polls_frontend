@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import HomePage from './HomePage.vue'
 import CreateQuestion from './CreateQuestion.vue'
 import ListQuestion from './ListQuestion.vue'
 import FindQuestion from './FindQuestion.vue'
@@ -22,6 +23,7 @@ const Bar = { template: '<div>bar</div>' }
 // or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
+  { path: '/', component: HomePage },
   { path: '/create', component: CreateQuestion },
   { path: '/find', component: FindQuestion },
   { path: '/get/:slug', component: ListQuestion },
