@@ -4,6 +4,7 @@ import HomePage from './HomePage.vue'
 import CreateQuestion from './CreateQuestion.vue'
 import ListQuestion from './ListQuestion.vue'
 import FindQuestion from './FindQuestion.vue'
+import VoteResult from './VoteResult.vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
@@ -27,6 +28,8 @@ const routes = [
   { path: '/create', component: CreateQuestion },
   { path: '/find', component: FindQuestion },
   { path: '/get/:slug', component: ListQuestion },
+  { path: '/get/:slug/result', component: VoteResult },
+
   { path: '/bar', component: Bar }
 ]
 Vue.use(VueResource);

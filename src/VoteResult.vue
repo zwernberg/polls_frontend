@@ -2,7 +2,8 @@
 <ul id="example-1" class="list-group">
     <h2>{{question.question_text}}</h4>
     <h4>What To Search for: {{question.slugfield}} </h2>
-  <li type="button" class="list-group-item btn"  v-for="choice in question.choices" v-on:click="vote(choice)" >
+  <li type="button" class="list-group-item btn"  v-for="choice in question.choices" >
+          <span class="tag tag-default tag-pill float-xs-right">{{choice.votes}} Votes</span>
 
     {{ choice.choice_text }}
   </li>
@@ -11,7 +12,7 @@
 </template>
 <script>
 export default {
-  name: "ListQuestion",
+  name: "VoteResult",
   data () {
     return {
       msg: 'Hello world!',
@@ -23,18 +24,11 @@ export default {
   },
   methods: {
     init: function () {
-        var url = "http://192.241.159.51/api/polls/" + this.$route.params.slug;
+        var url = "http://192.241.159.51/api/polls/" + this.$route.params.slug + "/results/";
         this.$http.get(url).then((response) => {
             this.question = response.body;
         })
     },
-    vote: function(choice) {
-        var url = "http://192.241.159.51/api/choices/" + choice.id + "/vote/"
-        this.$http.post(url, {}).then((response) => {
-            choice.votes += 1;
-                 this.$router.push({ path: this.$route.params.slug + '/result', params: { slug: this.$route.params.slug }})
-        });
-    }
   }
 }
 </script>
