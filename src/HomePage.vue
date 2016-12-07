@@ -2,10 +2,10 @@
 
     <div class="home-view">
         <div class="button-style">
-          <router-link to="/create">Create</router-link>
+          <router-link :to="{ name: 'create' }">Create</router-link>
         </div>
         <div class="button-style">
-          <router-link to="/find">Search</router-link>
+          <router-link :to="{ name: 'find'}">Search</router-link>
         </div>
     </div>
 

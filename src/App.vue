@@ -1,7 +1,7 @@
 <template>
 
 <div id="app">
-  <h1><router-link to="/">app name</router-link></h1>
+  <h1><router-link :to="{name:'home'}">app name</router-link></h1>
 
     <!-- use router-link component for navigation. -->
     <!-- specify the link by passing the `to` prop. -->

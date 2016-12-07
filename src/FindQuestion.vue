@@ -59,7 +59,7 @@ export default {
     methods: {
     FindQuestion:function(){
       var query = this.color + this.number.toString() + this.animal
-     this.$router.push({ path: 'get/' + query, params: { slug: query }})
+     this.$router.push({ name: 'getQuestion', params: { slug: query }})
     }
   }
 }

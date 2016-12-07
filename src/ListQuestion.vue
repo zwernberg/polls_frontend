@@ -32,7 +32,7 @@ export default {
         var url = "http://192.241.159.51/api/choices/" + choice.id + "/vote/"
         this.$http.post(url, {}).then((response) => {
             choice.votes += 1;
-                 this.$router.push({ path: this.$route.params.slug + '/result', params: { slug: this.$route.params.slug }})
+            this.$router.push({ name: 'getResult', params: { slug: this.$route.params.slug }})
         });
     }
   }

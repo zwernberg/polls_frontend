@@ -15,7 +15,6 @@ window.Tether = tether;
 require('bootstrap');
 
 
-const Bar = { template: '<div>bar</div>' }
 
 // 2. Define some routes
 // Each route should map to a component. The "component" can
@@ -24,14 +23,12 @@ const Bar = { template: '<div>bar</div>' }
 // or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-  { path: '/', component: HomePage },
-  { path: '/create', component: CreateQuestion },
-  { path: '/find', component: FindQuestion },
-  { path: '/get/:slug', component: ListQuestion },
-  { path: '/get/:slug/result', component: VoteResult },
-
-  { path: '/bar', component: Bar }
-]
+  { path: '/', component: HomePage, name:'home' },
+  { path: '/create', component: CreateQuestion, name:'create' },
+  { path: '/find', component: FindQuestion, name:'find' },
+  { path: '/get/:slug', component: ListQuestion, name:'getQuestion' },
+  { path: '/get/:slug/result', component: VoteResult, name:'getResult' },
+  ]
 Vue.use(VueResource);
 Vue.use(VueRouter)
 
