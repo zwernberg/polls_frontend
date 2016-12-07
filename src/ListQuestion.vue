@@ -30,7 +30,7 @@ export default {
         })
     },
     checkVoted: function(){
-      this.voted = JSON.parse(localStorage.getItem(this.$route.params.slug) || false )
+      this.voted = JSON.parse(localStorage.getItem(this.$route.params.slug) !== null || false )
       if(this.voted){
         this.$router.push({name:'getResult', params: {slug:this.$route.params.slug}})
       }
@@ -39,7 +39,7 @@ export default {
         var url = "http://192.241.159.51/api/choices/" + choice.id + "/vote/"
         this.$http.post(url, {}).then((response) => {
             choice.votes += 1;
-            localStorage.setItem(this.$route.params.slug, true)
+            localStorage.setItem(this.$route.params.slug, choice.id)
             this.$router.push({ name: 'getResult', params: { slug: this.$route.params.slug }})
         });
     }
