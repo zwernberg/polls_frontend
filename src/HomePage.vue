@@ -33,12 +33,14 @@ export default {
     right: 3%;
   }
   .button-style {
-    border: 1px solid black;
-    border-radius: 3px;
+    border: 2px solid #111d1d;
+    border-radius: 5px;
     font-size: 75px;
+    font-weight: 700;
     margin-top: 30px;
   }
   a:link, a:visited, a:hover, a:active {
     text-decoration: none;
   }
+
 </style>

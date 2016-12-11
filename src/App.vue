@@ -1,20 +1,19 @@
 <template>
+  <div id="app">
+    <h1><router-link :to="{name:'home'}">app name</router-link></h1>
 
-<div id="app">
-  <h1><router-link :to="{name:'home'}">app name</router-link></h1>
-
-    <!-- use router-link component for navigation. -->
-    <!-- specify the link by passing the `to` prop. -->
-    <!-- <router-link> will be rendered as an `<a>` tag by default -->
-
+      <!-- use router-link component for navigation. -->
+      <!-- specify the link by passing the `to` prop. -->
+      <!-- <router-link> will be rendered as an `<a>` tag by default -->
 
 
-  <!-- route outlet -->
-  <!-- component matched by the route will render here -->
-  <div class="container-fluid">
-  <router-view></router-view>
+
+    <!-- route outlet -->
+    <!-- component matched by the route will render here -->
+    <div class="container-fluid">
+    <router-view></router-view>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -27,19 +26,23 @@ export default {
   }
 }
 </script>
+
 <style src="bootstrap/dist/css/bootstrap.css"></style>
 <style>
+  * {
+    background-color: #f7e3e3;
+  }
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: #111d1d;
     margin-top: 60px;
   }
 
   h1, h2 {
-    font-weight: normal;
+    font-weight: bold;
     font-size: 100px;
   }
 
@@ -54,6 +57,7 @@ export default {
   }
 
   a {
-    color: #42b983;
+    color: #111d1d;
+    background-color: #f7e3e3;
   }
 </style>
