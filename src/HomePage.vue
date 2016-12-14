@@ -33,7 +33,7 @@ export default {
     right: 3%;
   }
   .button-style {
-    border: 2px solid #111d1d;
+    border: 3px solid #111d1d;
     border-radius: 5px;
     font-size: 75px;
     font-weight: 700;
