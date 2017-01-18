@@ -1,89 +1,104 @@
 <template>
-  <div class="col-xs-12 col-sm-12">
-    <form>
-      <legend>Create A Question</legend>
-      <div class="form-group">
-        <div class="row">
-          <label for="questiontext" class="col-xs-3 text-right control-label">Question</label>
-          <div class="col-xs-6">
-            <input type="text" class="form-control" id="questiontext" v-model="question_text" placeholder="Whats the Question?">
-        </div>
-      </div>
-      <div v-for="(choice, index) in choices" :key="choice.id" class="form-group">
-        <div class="row">
-          <label for="choicetext" class="col-xs-3 text-right control-label">Choice {{index+1}}</label>
-          <div class="col-xs-6">
-            <input type="text" class="form-control" v-model="choice.choice_text" id="choicetext" :placeholder="choice.choice_text">
-          </div>
-          <div class="col-xs-3">
-            <button type="button" id="DeleteRowBtn" name="DeleteRowBtn" v-on:click="removeChoice(index)" class="btn btn-danger">Delete</button>
-          </div>
+  <div>
+      <label for="questiontext">Question</label>
+      <input type="text" id="questiontext" v-model="question_text" placeholder="Enter your question">
+      <div id="CreateBtn" name="CreateBtn" v-on:click="addChoice()" class="button-style">+ add choice</div>
+
+      <div v-for="(choice, index) in choices" :key="choice.id" class="option-group">
+        <label for="choicetext">Option {{index+1}}</label>
+        <div class="option-row">
+          <input type="text" id="choicetext" v-model="choice.choice_text" :placeholder="choice.choice_text">
+          <div id="DeleteRowBtn" name="DeleteRowBtn" v-on:click="removeChoice(index)" class="button-style">X</div>
         </div>
       </div>
 
-      <div class="form-group">
-        <div class="row">
-          <div class="col-xs-2">
-          </div>
-          <div class="col-xs-4">
-            <button type="button" id="CreateBtn" name="CreateBtn" class="btn btn-success" v-on:click="postQuestion()">Create</button>
-            <button type="button" id="CancelBtn" name="CanceltBtn" class="btn btn-danger">Cancel</button>
-          </div>
-          <div class="col-xs-3">
-            <button type="button" id="CreateBtn" name="CreateBtn" v-on:click="addChoice()" class="btn btn-info">Add Choice</button>
-          </div>
-        </div>
-
-    </form>
-
-
-    </div>
+      <div id="CreateBtn" name="CreateBtn" v-on:click="postQuestion()" class="button-style fixed-at-bottom">Submit</div>
+  
+  </div>
 </template>
 <script>
-export default {
-  name: "CreateQuestion",
-  data () {
-    return {
-      msg: 'Hello world!',
-      question_text: '',
-      choices: []
+  export default {
+    name: "CreateQuestion",
+    data () {
+      return {
+        msg: 'Hello world!',
+        question_text: '',
+        choices: []
 
-    }
-  },
-  created: function () {
-    this.init();
-  },
-  methods: {
-    init: function () {
-      this.choices.push({ choice_text: '' });
+      }
     },
-    removeChoice : function (index) {
-      console.log(index);
-      this.choices.splice(index,1);
+    created: function () {
+      this.init();
     },
-    addChoice: function(){
-      this.choices.push({choice_text: ''});
-    },
-    postQuestion:function(){
-      var url = "http://192.241.159.51/api/polls/";
-      var payload = {question_text: this.question_text, choices: this.choices};
+    methods: {
+      init: function () {
+        this.choices.push({ choice_text: '' });
+      },
+      removeChoice : function (index) {
+        console.log(index);
+        this.choices.splice(index,1);
+      },
+      addChoice: function(){
+        this.choices.push({choice_text: ''});
+      },
+      postQuestion:function(){
+        var url = "http://192.241.159.51/api/polls/";
+        var payload = {question_text: this.question_text, choices: this.choices};
 
-      // send get request
-  this.$http.post(url, payload).then((response) => {
+        // send get request
+    this.$http.post(url, payload).then((response) => {
 
-     console.log(response.body.id);
-     this.$router.push({ path: 'get/' + response.body.slugfield, params: { slug: response.body.slugfield }})
+      console.log(response.body.id);
+      this.$router.push({ path: 'get/' + response.body.slugfield, params: { slug: response.body.slugfield }})
 
-  }, (response) => {
-    // error callback
-  });
+    }, (response) => {
+      // error callback
+    });
+      }
     }
   }
-}
 </script>
 
 <style>
-  .example {
-    color: red;
+  input {
+    color: #111d1d;
+    border: 3px solid #111d1d;
+    border-radius: 5px;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 10px;
+    width: 100%;
   }
+  label {
+    float: left;
+    font-size: 2.5em;
+    font-weight: 700;
+  }
+  .button-style {
+    border: 3px solid #111d1d;
+    border-radius: 5px;
+    font-size: 2.5em;
+    font-weight: 700;
+  }
+  .option-group {
+    margin-top: 100px;
+  }
+  .option-row {
+    display: inline;
+  }
+  .option-row input {
+    width: 85%;
+    float: left;
+  }
+  .option-row .button-style {
+    width: 10%;
+    float: right;
+  }
+  .fixed-at-bottom {
+    position: fixed;
+    bottom: 3%;
+    left: 3%;
+    right: 3%;
+  }
+
 </style>

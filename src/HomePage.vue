@@ -1,5 +1,4 @@
 <template>
-
     <div class="home-view">
         <div class="button-style">
           <router-link :to="{ name: 'create' }">Create</router-link>
@@ -8,21 +7,21 @@
           <router-link :to="{ name: 'find'}">Search</router-link>
         </div>
     </div>
-
 </template>
+
 <script>
-export default {
-  name: "HomePage",
-  data () {
-    return {
-      msg: 'Hello world!',
+  export default {
+    name: "HomePage",
+    data () {
+      return {
+        msg: 'Hello world!',
+
+      }
+    },
+    methods: {
 
     }
-  },
-  methods: {
-
   }
-}
 </script>
 
 <style>
@@ -42,5 +41,4 @@ export default {
   a:link, a:visited, a:hover, a:active {
     text-decoration: none;
   }
-
 </style>
